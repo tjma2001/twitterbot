@@ -13,7 +13,9 @@
   "author": "FoxHunter",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.4.1",
     "express": "^4.15.3",
+    "request": "^2.81.0",
     "twit": "^2.2.5"
   }
 }

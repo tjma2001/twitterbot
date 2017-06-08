@@ -1,22 +1,30 @@
 const express = require('express')
     , server = express()
     , Twit = require('twit')
+    , Geocode = require('./lib/Geocode')
+    , Dummy = require('./lib/Dummy')
     , port = 9006
     , T = new Twit({
-        consumer_key: 'v0GIC5fnDVWiepjfHdkPcCyNY'
-        , consumer_secret: 'WgWMVvYeClLXobm7H2n0s6N1RJPQ9niyNIOTAN3ZyPKfGusqbu'
-        , access_token: '417938258-DVOe1FCBMQWgooKDplOVd8gYy88XJu788jPhwXj7'
-        , access_token_secret: 'ePOIEIN5cyz6X1uzp6OKAKGZKbUymh6Xa3jm1k429VtIw'
+        consumer_key: 'm3y6qK05PNWHTqmgzGOlxQ5Rl'
+        , consumer_secret: 'rbDtPmRyJmCUyU8MdSncvwYZvYEdogPUQoBcV2sGT0P52q2QUx'
+        , access_token: '871468890332823553-ArEpH5MhtlfhoWXr0Va6A5Vt6dqpkN7'
+        , access_token_secret: 'ti573MpQSEatmGbCUaAhhnXmtghIxsggYrsMdhdqLed8n'
         , timeout_ms: 60 * 1000
     })
+    , myName = 'TransportMeTo'
 
+console.log(process.version)
+Dummy.startDummy()
 
-var stream = T.stream('user', { user: 'TransportMeTo'})
+var stream = T.stream('user', { user: 'tjma2001'})
 
 stream.on('tweet', function (tweet) {
   console.log("received tweet");
   var nameId = tweet.id_str;
   var username = tweet.user.screen_name;
+  if(username.indexOf(myName) !== -1) {
+      return
+  }
   T.post('statuses/update', { in_reply_to_status_id: nameId, status: `Hello there @${username}`}, (err, data, response) => {
       if(!err) {
           console.log('reply sent')
