@@ -1,0 +1,88 @@
+{
+    "created_at": "Sat Jun 10 19:12:51 +0000 2017",
+    "id": 873618984519839700,
+    "id_str": "873618984519839745",
+    "text": "28 Dissel Road, Bonteheuwel to Grassypark @TransportMeTo",
+    "source": "Twitter Web Client",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 417938258,
+        "id_str": "417938258",
+        "name": "Tensai Bankai",
+        "screen_name": "tjma2001",
+        "location": null,
+        "url": null,
+        "description": null,
+        "protected": false,
+        "verified": false,
+        "followers_count": 34,
+        "friends_count": 126,
+        "listed_count": 0,
+        "favourites_count": 26,
+        "statuses_count": 181,
+        "created_at": "Mon Nov 21 15:04:46 +0000 2011",
+        "utc_offset": 10800,
+        "time_zone": "Athens",
+        "geo_enabled": false,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_link_color": "1DA1F2",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/3255946834/af9f4a8b4f8229d0703a02b884dc7cb6_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/3255946834/af9f4a8b4f8229d0703a02b884dc7cb6_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/417938258/1409659436",
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+        "hashtags": [
+            
+        ],
+        "urls": [
+            
+        ],
+        "user_mentions": [
+            {
+                "screen_name": "TransportMeTo",
+                "name": "GetMeTo",
+                "id": 871468890332823600,
+                "id_str": "871468890332823553",
+                "indices": [
+                    7,
+                    21
+                ]
+            }
+        ],
+        "symbols": [
+            
+        ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "filter_level": "low",
+    "lang": "en",
+    "timestamp_ms": "1497121971622"
+}

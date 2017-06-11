@@ -22,6 +22,7 @@ stream.on('tweet', function (tweet) {
   console.log("received tweet");
   var nameId = tweet.id_str;
   var username = tweet.user.screen_name;
+  var json = JSON.stringify(tweet)
   if(username.indexOf(myName) !== -1) {
       return
   }
