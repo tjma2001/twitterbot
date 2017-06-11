@@ -3,7 +3,8 @@
 	"googleConf": {
 		"key": "AIzaSyDGLOfR-nzN4HJb4t2UapzHwgxmDvuYUk4",
 		"stagger_time": 1000,
-		"encode_polylines": false,
+		"encode_polylines": true,
 		"secure": true
-	}
+	},
+	"mapboxApiKey": "pk.eyJ1IjoiZmlnb3JuYWFydGppZSIsImEiOiJjajN0YTgyeDYwMDFiMnFwNnA2eWxxYjZ6In0.fa1q6oka8deARQ6C8a5ruA"
 }
