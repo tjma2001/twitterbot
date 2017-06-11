@@ -1,3 +1,9 @@
 {
-    "baseURI": "http://www.easytaxi.co.nr"
+	"baseURI": "http://www.easytaxi.co.nr",
+	"googleConf": {
+		"key": "AIzaSyDGLOfR-nzN4HJb4t2UapzHwgxmDvuYUk4",
+		"stagger_time": 1000,
+		"encode_polylines": false,
+		"secure": true
+	}
 }
