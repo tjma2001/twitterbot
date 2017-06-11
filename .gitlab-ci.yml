@@ -25,6 +25,7 @@ clean_node_modules:
 install_dependencies:
   stage: setup
   script:
+    - node-gyp rebuild
     - npm install
 
 test_webapp:
