@@ -1,0 +1,34 @@
+image: node:6
+
+before_script:
+  - node -v
+  - npm -v
+
+cache:
+  paths: 
+    - node_modules/
+    - dist/
+    - artifact/
+    
+stages:
+  - clean
+  - setup
+  - test
+  - build
+  - artifact
+
+clean_node_modules:
+  stage: clean
+  script:
+    - rm -rf node_modules
+    
+install_dependencies:
+  stage: setup
+  script:
+    - npm install
+
+test_webapp:
+  stage: test
+  script: 
+    - echo "executing integration testing?"
+    - npm run test
