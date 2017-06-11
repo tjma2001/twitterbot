@@ -1,0 +1,7 @@
+Connected to Twitter API using new API key.
+Connected to Google geocoding API
+Connected to WIMT API
+
+Added dummy classes to test API flow. Should have done this earlier as it allows for better testing without having to post to twitter. I could have been done ages ago
+
+Still need to add lots of processes to allow for proper waiting of results.
