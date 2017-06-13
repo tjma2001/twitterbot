@@ -14,7 +14,7 @@ const express = require('express')
     , myName = 'TransportMeTo'
 
 console.log(process.version)
-Dummy.startDummy()
+Dummy.startDummy(T)
 
 var stream = T.stream('user', { user: 'tjma2001'})
 
