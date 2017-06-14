@@ -20,6 +20,7 @@ const express = require('express')
 // Dummy.startDummy(T)
 const start = () => {
     console.log("Ready")
+    Dummy.startDummy(T)
     var stream = T.stream('user', { user: myName})
 
     stream.on('tweet', function (tweet) {
