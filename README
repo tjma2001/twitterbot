@@ -1,0 +1,4 @@
+In order for the project to run the following packages have to be installed on your system:
+
+sudo apt-get install libgd2-dev
+sudo apt install graphicsmagick
