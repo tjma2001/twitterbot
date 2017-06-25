@@ -17,9 +17,7 @@ const express = require('express')
     , client = new Client(processor, T)
     , myName = 'TransportMeTo'
 
-// Dummy.startDummy(T)
 const start = () => {
-    console.log("Ready")
     Dummy.startDummy(T)
     var stream = T.stream('user', { user: myName})
 
@@ -32,13 +30,6 @@ const start = () => {
             return
         }
         client.processTweet(tweet)
-        // T.post('statuses/update', { in_reply_to_status_id: nameId, status: `Hello there @${username}`}, (err, data, response) => {
-        //     if(!err) {
-        //         console.log('reply sent')
-        //     } else {
-        //         console.log('reply failed')
-        //     }
-        // })
     })
 
     stream.on('error', err => {
@@ -55,7 +46,7 @@ const start = () => {
 
 
 server.get('/', (req, res) => {
-    console.log(req);
+    res.status(200).send("Got Home.")
 })
 
 server.get('/webhooks/twitter', (req,res) => {
