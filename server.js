@@ -13,8 +13,7 @@ const express = require('express')
         , access_token_secret: 'ti573MpQSEatmGbCUaAhhnXmtghIxsggYrsMdhdqLed8n'
         , timeout_ms: 60 * 1000
     })
-    , processor = new Processor()
-    , client = new Client(processor, T)
+    , client = new Client(T)
     , myName = 'TransportMeTo'
 
 const start = () => {
