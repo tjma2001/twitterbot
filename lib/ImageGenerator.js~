@@ -54,14 +54,14 @@ class ImageGenerator {
                 let completed = await staticMap.render(center)
                 if(completed) {
                     var imagePath = `generated-images/map-${ journey.id }.png`                    
-                    staticMap.image.image.getBuffer(Jimp.MIME_PNG, (err, pngBuffer) => {
+                    staticMap.image.getBuffer(Jimp.MIME_PNG, pngBuffer => {
                         resolve(pngBuffer)
                     })
                     
-                    // staticMap.image.save(imagePath, _=> {
-                    // //    resolve(imagePath)
-                    // // console.log(_)
-                    // })
+                    staticMap.image.save(imagePath, _=> {
+                    //    resolve(imagePath)
+                    // console.log(_)
+                    })
                 }
             } catch (error) {
                 console.log(error)
@@ -76,7 +76,8 @@ class ImageGenerator {
                 , map = gd.createFromPngPtr(png)
                 , modes = this.generateModesView(journey)
                 , tBgColor = gd.trueColorAlpha(255, 255, 255, 127);
-                
+            console.log(img)
+            console.log(map)
             img.alphaBlending(0)
             img.saveAlpha(1)
             img.filledRectangle(0, 0, 800, 1200, tBgColor)
@@ -111,6 +112,35 @@ class ImageGenerator {
         })
     }
 
+    async generateErrorCard(text) {
+        return new Promise((resolve, reject) => {
+            var img = gd.createTrueColorSync(600, 500)
+            
+            // Set background color 
+            img.colorAllocate(0, 0, 0)
+
+            // Set text color 
+            var txtColor = img.colorAllocate(255, 255, 255)
+            
+            // Set full path to font file 
+            var fontPath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+            
+            // Render string in image 
+            img.stringFT(txtColor, fontPath, 18, 0, 10, 60, text)
+            
+            // Write image buffer to disk 
+            resolve(img.pngPtr())
+            img.savePng('generated-images/error-output.png', 1, function(err) {
+                if(err) {
+                    throw err
+                }
+            })
+            
+            // Destroy image to clean memory 
+            img.destroy()
+        })
+    }
+
     addStopsToMap(journey, map) {
     	try {
             let itinerary = journey.itineraries[0]
@@ -118,7 +148,7 @@ class ImageGenerator {
             var marker = {
                 img: __dirname + '/../assets/icon.png', // can also be a URL
             	offsetX: 6,
-            	offsetY: 8,
+            	offsetY: 12,
                 width: 24,
                 height: 24
             }
@@ -155,7 +185,7 @@ class ImageGenerator {
             var line = {
                 coords: [...leg.geometry.coordinates],
                 color: colour,
-                width: 8
+                width: 4
             }
             map.addLine(line)
         })
@@ -251,7 +281,8 @@ class ImageGenerator {
 
         return `
   Start at: ${ startDate }
-  End at:   ${ endDate }`
+  End at: ${ endDate }
+        `
     }
 
     middlePoint(lat1, lng1, lat2, lng2) {

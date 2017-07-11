@@ -1,10 +1,12 @@
 const express = require('express')
     , server = express()
     , Twit = require('twit')
+    , BodyParser = require('body-parser')
     , Geocode = require('./lib/Geocode')
     , Dummy = require('./lib/Dummy')
     , Processor = require('./lib/Processor')
     , Client = require('./lib/Client')
+    , WebHook = require('./lib/WebHook')
     , port = 9006
     , T = new Twit({
         consumer_key: 'm3y6qK05PNWHTqmgzGOlxQ5Rl'
@@ -15,9 +17,10 @@ const express = require('express')
     })
     , client = new Client(T)
     , myName = 'TransportMeTo'
+    , webhook = new WebHook()
 
 const start = () => {
-    Dummy.startDummy(T)
+    // Dummy.startDummy(T)
     var stream = T.stream('user', { user: myName})
 
     stream.on('tweet', function (tweet) {
@@ -42,19 +45,14 @@ const start = () => {
     start()
 })()
 
-
+server.use(BodyParser.urlencoded({ extended: false }))
+server.use(BodyParser.json())
 
 server.get('/', (req, res) => {
-    res.status(200).send("Got Home.")
+    res.status(200).send("Go Home!")
 })
 
-server.get('/webhooks/twitter', (req,res) => {
-    console.log(req);
-})
-
-server.post('/webhooks/twitter', (req,res) => {
-    console.log(req);
-})
+server.post('/webhook/apiairequest', webhook.reverseGeocode.bind(webhook) )
 
 server.listen(port, listen => {
     console.log("server listening on ", port);
